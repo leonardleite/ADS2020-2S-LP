@@ -1,5 +1,5 @@
 // ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
-// CAPÍTULO 07 - EXERCÍCIO 03
+// CAPÍTULO 07 - EXERCÍCIO 04
 /* Preencher um vetor com 3 nomes com 20 letras no máximo cada. 
 Imprimir os nomes*/
 

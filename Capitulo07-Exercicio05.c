@@ -1,5 +1,5 @@
 // ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
-// CAPÍTULO 07 - EXERCÍCIO 03
+// CAPÍTULO 07 - EXERCÍCIO 05
 /* Solicitar um nome e mostrar a primeira, ultima, a quarta, da primeiro à
 terceira, da primeira à ultima. Mostrar a posição de cada letra no vetor.*/
 
