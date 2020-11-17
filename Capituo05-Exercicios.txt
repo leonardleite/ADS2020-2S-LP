@@ -1,0 +1,711 @@
+// Captulo 04 - Exercício 01
+/* Criar em linguagem C e utilizando o comando WHILE, um programa que imprima na tela os nï¿½meros de 100
+a 0 em um intervalo de um décimo de segundo*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+
+int desejasair(); // Subrotina para verificar ser o usuï¿½io deseja finalizar o programa
+void contagem(); // Subrotina para imprimir na tela os nï¿½meros de 100 a 0
+
+// Programa principal
+main ()
+{
+    setlocale(LC_ALL,""); // Ajusta a configuraï¿½ï¿½o da linguagem para o protuguï¿½s do Brasil
+    system("cls"); // Limpa a tela do terminal
+    int sair;
+    while(sair!=2) // Comando WHILE utilizado para controlar a execuï¿½ï¿½o da rotina
+    {
+        contagem(); // Executa a subrotina CONTAGEM();
+        sair = desejasair(); // Executa a subrotina DESEJASAIR() e retorna o resultado para a variÃ¡vel sair
+    }
+    system("cls");
+    printf("\n\nPrograma finalizado.");
+    sleep(2000); // Pausa a rotina por 2 segundos
+}
+
+// Subrotina para verificar se o usuÃ¡rio deseja executar novamente 
+int desejasair()
+{
+    int resposta;
+    while((resposta!=1)&&(resposta!=2)) // WHILE utilizado para verificar se o usuï¿½rio digitou a opï¿½ï¿½o correta
+    {
+        system("cls");
+        printf("\nDeseja executar novamente? ");
+        printf("\n[1] - Sim");
+        printf("\n[2] - Nï¿½o\n");
+        scanf("%d", &resposta);
+    }
+    return resposta;
+}
+
+// Subrotina que executa a contagem
+void contagem()
+{
+    system("cls");
+    printf("\nCapï¿½tulo 04 - Exercï¿½cio 01\n");
+    printf("\nIniciando a contagem :\n");
+    int i = 100;
+    while (i>=0) // Coordena a contagem regressiva
+    {
+        switch (i)
+        {
+        case 100:
+            printf("%d", i);
+            break;
+        case 0:
+            printf(", %d.", i);
+            break;
+        default:
+            if((i%10) == 0) printf("...\n%d", i);
+            else printf(", %d", i);
+            break;
+        }
+        i--;
+        sleep(100);
+    }
+    sleep(2000);    
+}
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 02
+/* Criar em linguagem C e utilizando o comando WHILE, um programa que imprima na tela os números de 0 a
+100 em um intervalo de um décimo de segundo*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+
+
+void contagem();
+int executarNovamente();
+
+// Rotina principal
+main()
+{
+    setlocale(LC_ALL,""); // Configura a linguagem para o portugues do Brasil
+    int sair;
+    while(sair!=2) // Loop da rotina principal para manter o programa em execução
+    {
+        system("cls");
+        printf("\nCONTAGEM PROGRESSIVA\n\n");
+        contagem(); // 
+        sair = executarNovamente();              
+    }
+    printf("\n\nAté mais!!!");
+    sleep(2000); // Exibe a mensagem acima por 2 segundos e encerra a rotina
+}
+
+// Subrotina CONTAGEM - Faz a contagem
+void contagem()
+{
+    int i = 0;
+    while (i<=100)
+    {
+        switch (i)
+        {
+        case 0:
+            printf("%d", i);
+            break;
+        case 100:
+            printf(", %d.", i);
+            break;
+        default:
+            if ((i%10)==0) printf("...\n%d", i);
+            else printf(", %d", i);
+            break;
+        }
+    i++;
+    sleep(100);
+    }
+}
+
+// Subrotina EXECUTARNOVAMENTE - Decisão de encerrar o programa
+int executarNovamente()
+{
+    int sair;
+    printf("\n\nDeseja executar novamente?");
+    printf("\n[1] - Sim | [2] - Não");
+    scanf("%d", &sair);
+    while ((sair!=1)&&(sair!=2))
+    {
+        system("cls");
+        printf("Opção inválida");
+        printf("\nDeseja executar novamente?");
+        printf("\n[1] - Sim | [2] - Não");
+        scanf("%d", &sair);
+    }
+    return sair;
+}
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 03
+/* Criar em linguagem C e utilizando o comando WHILE, um programa que 
+imprima as letras de A a Z em um intervalo de um décimo de segundo.*/
+
+
+// Incluir as bibliotecas
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+void contagem();
+int executarNovamente();
+
+main()
+{
+    setlocale(LC_ALL,"");
+    int sair;
+    while (sair!=2)
+    {
+        system("cls");
+        printf("\nCONTAGEM PROGRESSIVA ALFABÉTICA\n");
+        contagem();
+        sair = executarNovamente();
+    }
+
+    printf("\nAté mais!!!");
+    sleep(2000);
+}
+
+void contagem() // Realiza a contagem progressiva do alfabeto
+{
+    char alfa = 'a';
+    printf("\n");
+    while (alfa<='z')
+    {
+        switch (alfa)
+        {
+            case 'a':
+                printf("%c", alfa);
+                break;
+            case 'z':
+                printf(", %c.", alfa); 
+                break;
+            default:
+                printf(", %c", alfa);
+                break;
+        }
+        alfa++;
+        sleep(200);
+    }
+}
+
+//Subrotina verifica se o usuário deseja executar novamente a rotina principal
+int executarNovamente()
+{
+    int sair = 0;
+    printf("\n\nDeseja executar novamente?");
+    printf("\n[1] - Sim | [2] - Não");
+    printf("\nDigite sua opção: ");
+    scanf("%d", &sair);
+    while ((sair!=2)&&(sair!=1))
+    {
+        system("cls");
+        printf("\n\nOpção inváilida");
+        printf("\nDeseja executar novamente?");
+        printf("\n[1] - Sim | [2] - Não");
+        printf("\nDigite sua opção: ");
+        scanf("%d", &sair);
+    }
+    return sair;
+}
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 04
+/* Criar em linguagem C e utilizando o comando WHILE, um programa que 
+imprima as letras de Z a A em um intervalo de um décimo de segundo.*/
+
+
+// Incluir as bibliotecas
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+void contagem();
+int executarNovamente();
+
+main()
+{
+    setlocale(LC_ALL,"");
+    int sair;
+    while (sair!=2)
+    {
+        system("cls");
+        printf("\nCONTAGEM REGRESSIVA ALFABÉTICA\n");
+        contagem();
+        sair = executarNovamente();
+    }
+
+    printf("\nAté mais!!!");
+    sleep(2000);
+}
+
+void contagem() // Realiza a contagem regressiva do alfabeto
+{
+    char alfa = 'z';
+    printf("\n");
+    while (alfa>='a')
+    {
+        switch (alfa)
+        {
+            case 'z':
+                printf("%c", alfa);
+                break;
+            case 'a':
+                printf(", %c.", alfa); 
+                break;
+            default:
+                printf(", %c", alfa);
+                break;
+        }
+        alfa--;
+        sleep(200);
+    }
+}
+
+//Subrotina verifica se o usuário deseja executar novamente a rotina principal
+int executarNovamente()
+{
+    int sair = 0;
+    printf("\n\nDeseja executar novamente?");
+    printf("\n[1] - Sim | [2] - Não");
+    printf("\nDigite sua opção: ");
+    scanf("%d", &sair);
+    while ((sair!=2)&&(sair!=1))
+    {
+        system("cls");
+        printf("\n\nOpção inváilida");
+        printf("\nDeseja executar novamente?");
+        printf("\n[1] - Sim | [2] - Não");
+        printf("\nDigite sua opção: ");
+        scanf("%d", &sair);
+    }
+    return sair;
+}
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 04
+/* Criar em linguagem C utilizando o comando WHILE, um programa que imprima uma palavra infinitamente,
+até que uma tecla seja pressionada*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+main()
+{
+    setlocale(LC_ALL,""); // Configura a linguagem para o protugues do Brasil
+    system("cls"); // Limpa a tela do terminal.
+    while(!kbhit()) // Repete a rotina até que uma tecla seja precionada.
+    {
+        printf(" ... Repita ");
+        sleep(250);
+    }
+    printf("\n\nFoi precionada uma tecla ...\nAté mais!!!");
+    sleep(2000);
+    
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 04
+/* Criar em linguagem C e utilizando o comando DO WHILE, que imprima a palavra FATEC o número
+de vezes que for digitado em um intervalo de um segundo.*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+main()
+{
+    setlocale(LC_ALL,""); // Configura para o portugues do Brasil
+    system("cls");
+    int n; // Numero de vezes da impressao
+    printf("\nCAPÍTULO 05 - EXERCÍCIO 04\n");
+    printf("\nDigite a quantidade de vezes que deseja imprimir FATEC: ");
+    scanf("%d", &n);
+    printf("\n");
+    int i = 1; // Controle do laco
+    while(n>=i)
+    {
+        if(((i%5)==0)&&(i!=0))printf(" ... FATEC ...\n");
+        else printf(" ... FATEC");
+        sleep(1000);
+        i++;
+    }
+    if(((i%5)==0)&&(i!=0))printf("\n");
+    else printf(" ... \n");    
+    printf("\nAte mais!!!");
+    sleep(2000);
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 07
+/* Criar em linguagem C e utilizando o comando DO WHILE, um programa que imprima uma
+contagem regressiva do numero que você digitar.*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+main()
+{
+    setlocale(LC_ALL,""); // Configura para o portugues do Brasil
+    int n; // Numero do inicio da contagem, solicitado ao usuario 
+    do
+    {
+        system("cls");
+        printf("\nCAPÍTULO 05 - EXERCÍCIO 07\n");
+        printf("\nDigite um numero maior que 0 para iniciar a contagem regressiva: ");
+        scanf("%d", &n);
+        if(n<=0) printf("Numero incorreto!\nTente novamente.");
+        sleep(2000);
+    } while (n<=0);
+    printf("\n");
+    int i = n; // Variavel de controle
+    do
+    {
+        switch (i)
+        {
+            case 0:
+                printf("%d.", i);
+                break;
+            default:
+                if ((i%10)==0) printf("%d ...\n", i);
+                else printf("%d, ", i);    
+        }
+        i--;
+        sleep(500);
+    } while (i>=0);
+    printf("\n\nAte mais!!!");
+    sleep(3000);
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 08
+/* Criar em linguagem C e utilizando o comando DO WHILE, um programa
+que identifique se um número é PAR, IMPAR e 0 para sair..*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+int parOuImpar(int num); // Declaração da subrotina parOuImpar
+
+main(){
+    setlocale(LC_ALL,""); // Configura para o português do brasil
+    int numero, resto;
+    do{ // Inicia o LOOP
+        system("cls"); // Limpa o terminal
+        printf("\nCAPÍTULO 05 - EXERCÍCIO 08\n"); 
+        printf("\nDigite o número inteiro que deseja analisar.");
+        printf("\nDigite [0] para finalizar a execução: "); 
+        scanf("%d", &numero);
+        switch (numero){
+            case 0:
+                break;
+            default:
+                resto=parOuImpar(numero); // Executa a subrotina e retorna o resto
+                if(resto==1) printf("\nO número digitado é ímpar.");
+                else printf("\nO número digitado é par."); 
+                sleep(3000);
+        }
+    } while (numero!=0); // Executo o LOOP enquanto não for digitado 0
+    printf("\nO programa será finalizado.");
+    sleep(2000);
+}
+
+/* Subrotina parOuImpar
+- param: Recebe um valor inteiro NUM.
+- param: Retorna um valor inteiro REST
+- Proc: Verifica se o resto da divisão de NUM por 2 é 0.
+*/
+int parOuImpar(num){
+    int rest;
+    rest = num%2;
+    return rest;
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 09
+/* Criar em linguagem C e utilizando o comando SWITCH, um programa
+que identifique se um número é PAR, IMPAR e 0 para sair..*/
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+int parOuImpar(int num); // Declaração da subrotina parOuImpar
+
+main(){
+    setlocale(LC_ALL,""); // Configura para o português do brasil
+    int numero, resto;
+    start:
+    system("cls"); // Limpa o terminal
+    printf("\nCAPÍTULO 05 - EXERCÍCIO 09\n"); 
+    printf("\nDigite o número inteiro que deseja analisar.");
+    printf("\nDigite [0] para finalizar a execução: "); 
+    scanf("%d", &numero);
+    switch (numero){
+        case 0:
+            goto end; // Manda a rotina para ponto denominado como END
+            break;
+        default:
+            resto=parOuImpar(numero); // Executa a subrotina e retorna o resto
+            if(resto==1) printf("\nO número digitado é ímpar.");
+            else printf("\nO número digitado é par."); 
+            sleep(3000);
+            goto start; // Manda a rotina para o ponto denominado como START
+    }
+    end:
+    printf("\nO programa será finalizado.");
+    sleep(2000);
+}
+
+/* Subrotina parOuImpar
+- param: Recebe um valor inteiro NUM.
+- param: Retorna um valor inteiro REST
+- Proc: Verifica se o resto da divisão de NUM por 2 é 0.
+*/
+int parOuImpar(num){
+    int rest;
+    rest = num%2;
+    return rest;
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 10
+/* Criar em linguagem C e utilizando o comando WHILE e / ou DO WHILE
+aninhado, um programa conforme imagem abaixo.
+
+*
+**
+***
+****
+*****
+******
+*******
+
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+main(){
+    setlocale(LC_ALL,""); // Configura para o português do Brasil
+    system("cls"); // Limpa a tela do terminal
+    int contLN; // Variável de controle de linha
+    int contCL; // Variável de controle de colunas (*)
+    printf("CAPÍTULO 05 - EXERCÍCIO 09");
+    printf("\n\nRotina executada com WHILE");
+    printf("\n");
+    contLN=1;
+    while(contLN<=7){
+        contCL=1;
+        while(contLN>=contCL){                    
+            printf("*");
+            sleep(200);
+            contCL++;
+        }
+        contLN++;
+        printf("\n");
+        sleep(300);
+    }
+    sleep(3000);
+    printf("\nRotina executada com DO WHILE");
+    printf("\n");
+    contLN=1;
+    do{
+        contCL=1;
+        do{
+            printf("*");
+            contCL++;
+            sleep(200);
+        }while(contLN>=contCL);
+        contLN++;
+        printf("\n");
+        sleep(300);
+    }while(contLN<=7);
+    sleep(3000);
+    printf("\nRotina realizada com FOR");
+    printf("\n");
+    for(contLN=1;contLN<=7;contLN++){
+        for(contCL=1;contLN>=contCL;contCL++){
+            printf("*");
+            sleep(200);
+        }
+        printf("\n");
+        sleep(300);
+    }
+    sleep(3000);
+    printf("\nPrograma finalizado.");
+    sleep(2000);
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 11
+/* Criar em linguagem C e utilizando o comando WHILE e / ou DO WHILE
+aninhado, um programa conforme imagem abaixo.
+
+1   2   3   4
+2   4   6   8
+3   6   9  12
+4   8  12  16
+*/
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+main(){
+    setlocale(LC_ALL,""); // Configura para o português do Brasil
+    system("cls"); // Limpa a tela do terminal
+    int contLN; // Variável de controle de linha
+    int contCL; // Variável de controle de colunas (*)
+    int pos; // Variável de controle de posição
+    printf("CAPÍTULO 05 - EXERCÍCIO 09");
+    printf("\n\nRotina executada com WHILE");
+    printf("\n");
+    contLN=1;
+    while(contLN<=4){ // Controle de posicionamento de linhas
+        contCL=1;
+        while(contCL<=4){ // Controle de posicionamento de colunas     
+            pos=contLN*contCL;
+            if(pos<10)printf("   %d", (pos));
+            else printf("  %d", (pos));
+            sleep(200);
+            contCL++;
+        }
+        contLN++;
+        printf("\n");
+        sleep(300);
+    }
+    sleep(3000);
+    printf("\nRotina executada com DO WHILE");
+    printf("\n");
+    contLN=1;
+    do{ // Controle de posicionamento de linhas
+        contCL=1;
+        do{ // Controle de posicionamento de colunas
+            pos=contLN*contCL;
+            if(pos<10)printf("   %d", pos);
+            else printf("  %d", pos);
+            contCL++;
+            sleep(200);
+        }while(contCL<=4);
+        contLN++;
+        printf("\n");
+        sleep(300);
+    }while(contLN<=4);
+    sleep(3000);
+    printf("\nRotina realizada com FOR");
+    printf("\n");
+    for(contLN=1;contLN<=4;contLN++){ // Controle de posicionamento de linhas
+        for(contCL=1;contCL<=4;contCL++){ // Controle de posicionamento de colunas
+            pos=contLN*contCL;
+            if(pos<10)printf("   %d", pos);
+            else printf("  %d", pos);
+            sleep(200);
+        }
+        printf("\n");
+        sleep(300);
+    }
+    sleep(3000);
+    printf("\nPrograma finalizado.");
+    sleep(2000);
+}
+
+
+
+// ADS 2020 - LINGUAGEM DE PROGRAMAÇÃO
+// CAPÍTULO 05 - EXERCÍCIO 12
+/* Criar em linguagem C e utilizando o comando WHILE ou DO WHILE, um
+programa que peça números ao usuário até que a soma de todos os
+números digitados for pelo menos 20.
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+#include<locale.h>
+#include<time.h>
+
+main(){
+    setlocale(LC_ALL,""); // Configura para o português do Brasil
+    system("cls"); // Limpa o terminal
+    int termo; // Variável do termo de adição
+    int soma; // Variável da soma dos termos
+    soma=0;
+    printf("CAPÍTULO 05 - EXERCÍCIO 12");
+    printf("\n\nRotina usando DO WHILE");
+    do{ // Início do LOOP
+        printf("\nEntre com um número: ");
+        scanf("%d", &termo);
+        soma+=termo;
+        printf("Total = %d", soma);
+    }while(soma<=20); // Limita o LOOP até que a SOMA atinja o objetivo
+    printf("\nFinal total: %d", soma);
+    sleep(3000);
+    printf("\n\nRotina usando WHILE"); // Início da rotina com WHILE
+    soma=0;
+    while(soma<=20){ //  Limita o LOOP até que a SOMA atinja o objetivo
+        printf("\nEntre com um número: ");
+        scanf("%d", &termo);
+        soma+=termo;
+        printf("Total = %d", soma);
+    } 
+    printf("\nFinal total: %d", soma);
+    sleep(3000);
+    printf("\n\nRotina usando FOR"); // Início da rotina com FOR
+    for(soma=0;soma<=20;){ //  Limita o LOOP até que a SOMA atinja o objetivo
+        printf("\nEntre com um número: ");
+        scanf("%d", &termo);
+        soma+=termo;
+        printf("Total = %d", soma);
+    } 
+    printf("\nFinal total: %d", soma);
+    sleep(3000);
+    printf("\n\nPrograma finalizado.");
+    sleep(3000);
+    
+}

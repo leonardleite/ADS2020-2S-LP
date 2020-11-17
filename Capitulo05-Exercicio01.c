@@ -1,6 +1,6 @@
-// Captulo 04 - Exercï¿½cio 01
+// Captulo 04 - Exercício 01
 /* Criar em linguagem C e utilizando o comando WHILE, um programa que imprima na tela os nï¿½meros de 100
-a 0 em um intervalo de um dï¿½cimo de segundo*/
+a 0 em um intervalo de um décimo de segundo*/
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -22,7 +22,7 @@ main ()
         sair = desejasair(); // Executa a subrotina DESEJASAIR() e retorna o resultado para a variÃ¡vel sair
     }
     system("cls");
-    printf("\n\nAtï¿½ mais!");
+    printf("\n\nPrograma finalizado.");
     sleep(2000); // Pausa a rotina por 2 segundos
 }
 
